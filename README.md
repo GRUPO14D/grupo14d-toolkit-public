@@ -1,168 +1,60 @@
-# grupo14d-toolkit
+# grupo14d-toolkit (Public Shell)
 
-Hub de documentação, planejamento e especificação para o ecossistema de telemetria do Grupo 14D.
-
----
-
-## O que é
-
-Este repositório centraliza:
-
-- **Exploração técnica** do estado atual da telemetria (arquivos P1, P2, P3)
-- **Especificação** do contrato v1 de telemetria (SDD)
-- **Plano de execução** para consolidação da lib em pacote compartilhado
-- **Referências** ao vault de contexto do projeto
-
-Não contém código de produção — é documentação e planejamento.
+Hub de documentação, planejamento e governança para o ecossistema de automação do Grupo 14D.
 
 ---
 
-## Estrutura
+## 🚀 O que é este repositório?
 
-```
+Este é um repositório de **"Casca" (Shell)** que centraliza a inteligência de engenharia por trás dos processos de RPA do Grupo 14D. Ele não contém código de produção, servindo como a **Fonte de Verdade** para:
+
+- **Auditoria Técnica:** Manuais e registros de saúde técnica de mais de 15 RPAs ativos.
+- **Especificações (SDD):** Definições rigorosas de novos pacotes e contratos de integração.
+- **Planejamento de Sprints:** Cronogramas e diretrizes de QA para evolução do ecossistema.
+- **Governança Documental:** Sincronização com o Vault de conhecimento (Obsidian).
+
+---
+
+## 📂 Estrutura de Governança
+
+```text
 grupo14d-toolkit/
-├── .md/
-│   ├── README.md                          (este arquivo)
-│   ├── P1-EXPLORAÇÃO.md                   (template vazio)
-│   ├── P1-EXPLORAÇAO-CONCLUIDO.md         (exploração inicial, 428 linhas)
-│   ├── P2-EXPLORAÇÃO-V2.md                (template vazio)
-│   ├── P2-EXPLORAÇÃO-V2-CONCLUIDO.md      (re-exploração, repos atualizados, 325 linhas)
-│   ├── P2-EXPLORAÇÃO-V2-CONCLUIDO-GEMINI.md (dossiê narrativo, perspectiva alternativa)
-│   └── P3-AVALIACAO-SDD-V0.1-CLAUDE.md    (avaliação crítica do SDD, 625 linhas)
-├── SDD_GRUPO14D_TELEMETRY_V0.1.md         (especificação v0.1, 477 linhas)
-└── README.md                              (este arquivo)
+├── .md/                             # Relatórios e Runbooks
+│   ├── RUNBOOK_AUDITORIA_15_RPAS.md # Manual de auditoria em lote
+│   ├── RUNBOOK_AUDITORIA_1_RPA.md   # Manual de auditoria granular
+│   ├── RUNBOOK_QA_SPRINT_*.md       # Checklists de qualidade por Sprint
+│   └── SDD_TELEMETRY_V*.md          # Especificações de Software (SDD)
+├── CHANGELOG.md                     # Evolução histórica do Toolkit
+└── pyproject.toml                   # Definição de stack e dependências globais
 ```
 
 ---
 
-## Documentos principais
+## 🛠️ Metodologia Operacional
 
-### P1 — Exploração Inicial (2026-04-17)
+### 1. Auditoria Estática & Rigorosa
+Utilizamos um processo de auditoria por robôs (AI-driven) que gera um arquivo `CONTEXT.md` para cada projeto, mapeando:
+- **Stack Técnica Real** (pandas, Playwright, SQLite, etc.)
+- **Dívida Técnica Acumulada** (Silenciamento de erros, paths hardcoded)
+- **Top 5 Ações Prioritárias** (Saneamento e robustez)
 
-**Arquivo:** `.md/P1-EXPLORAÇAO-CONCLUIDO.md`
+### 2. Especificação-Driven Development (SDD)
+Nenhuma linha de código é escrita na biblioteca central sem uma especificação formal prévia, garantindo que o contrato de telemetria seja respeitado por todos os 15 RPAs.
 
-Estado da telemetria baseado em clones desatualizados. Contém:
-- Mapeamento do MONITOR-RPA (servidor)
-- Inventário dos 6 RPAs mapeados à época
-- Divergências e inconsistências
-- Template de contrato v1 preliminar
-- Perguntas abertas para validação
-
-**Status:** Obsoleto (baseado em repos antigos). Mantido como referência histórica.
-
----
-
-### P2 — Re-exploração em 14D-PROJETOS (2026-04-17)
-
-**Arquivo:** `.md/P2-EXPLORAÇÃO-V2-CONCLUIDO.md`
-
-Re-exploração com repositórios atualizados de `/Users/davicassoli/Trabalho/14D-PROJETOS/`. Mapeamento completo:
-- 15 RPAs confirmados, todos reportando telemetria
-- Uma única geração de lib (`telemetry.py`, idêntica em todos)
-- Mudanças no MONITOR-RPA (refactor `apps/api` + `apps/web`, novos endpoints)
-- Heartbeat real em IRPF (300s, evento `watcher_heartbeat`)
-- URL única `http://192.168.1.3:8000` em produção
-- Divergências operacionais (nomenclatura, fragmentação, falta de heartbeat em 14 RPAs)
-
-**Status:** Atual. Fonte de verdade para estado real da telemetria.
+### 3. Sprints de Evolução (Em andamento)
+- **Sprint A:** Scaffolding e Infraestrutura. (Concluído)
+- **Sprint B:** Portabilidade e Contratos de Eventos. (Concluído)
+- **Sprint C:** Implementação de Heartbeat e Resiliência. (Em execução)
+- **Sprint D:** Centralização de Configurações. (Planejado)
 
 ---
 
-### P3 — Avaliação Crítica do SDD (2026-04-17)
+## 🛡️ Segurança e Privacidade
 
-**Arquivo:** `.md/P3-AVALIACAO-SDD-V0.1-CLAUDE.md`
-
-Avaliação rigorosa do SDD v0.1 de `grupo14d-telemetry`. Contém:
-- 3 críticas bloqueantes (backfill SQL, ordem de IRPF, SLA de migração)
-- 7 observações importantes (config loader, logging, heartbeat, testes, etc)
-- Validação contra estado real (P2)
-- Factibilidade de sprints A-E
-- Cronograma revisto
-- Aprovação com condições
-
-**Status:** Pronto para revisão por Davi. Bloqueador das 3 críticas antes de começar Sprint A.
+Este repositório público foi estruturado para demonstrar o **nível de profissionalismo e metodologia** aplicados no Grupo 14D. 
+- **Dados Sensíveis:** IPs, credenciais, nomes de parceiros e caminhos de rede internos são estritamente omitidos ou mascarados.
+- **Código de Produção:** Mantido em repositórios privados e ambiente de rede restrito.
 
 ---
 
-### SDD — Especificação v0.1 (2026-04-17)
-
-**Arquivo:** `SDD_GRUPO14D_TELEMETRY_V0.1.md`
-
-Especificação-Driven Development para `grupo14d-telemetry` v0.1. Contém:
-- Contrato v1 formalizado (payload, eventos canônicos, autenticação)
-- API pública do pacote (`Telemetry`, `HeartbeatDaemon`, `load_config`)
-- 5 sprints de execução (A-E: scaffolding, port, heartbeat, config, release)
-- Sprint F: ordem de migração dos 15 RPAs
-- Riscos e mitigações (R1-R7)
-- ADRs embutidas (decisões justificadas)
-- Perguntas abertas (Q1-Q6, não-bloqueantes para v0.1)
-- Critério de sucesso global
-
-**Status:** Em revisão. Aguardando feedback sobre 3 críticas de P3 antes de início.
-
----
-
-## Cronograma (proposto)
-
-```
-Sprint A (scaffolding):         meio dia          2026-04-18
-Sprint B (port + contract):     1.5 dias          2026-04-18 PM — 2026-04-19
-Sprint C (heartbeat):           1 dia             2026-04-20
-Sprint D (config loader):       meio dia          2026-04-20 PM
-Sprint E (release + backfill):  0.5 dias + 2h obs 2026-04-21 PM — 2026-04-22 obs
-
-Sprint F (migração 15 RPAs):    3-4 semanas       2026-04-22 — 2026-05-20
-
-Total: ~3.5 semanas até 15/15 migrados
-```
-
-Veja seção 6 de P3 para cronograma detalhado e rationale.
-
----
-
-## Próximos passos
-
-1. **Você revisa:** P3-AVALIACAO, especialmente as 3 críticas bloqueantes.
-2. **Você aprova ou discorda:** Das recomendações em P3 seção 6.
-3. **Eu reescrevo:** SDD com ajustes, crio RUNBOOK_SPRINT_A.md.
-4. **Você cria:** Repo `grupo14d-telemetry` vazio no GitHub (irmão de `grupo14d-toolkit`).
-5. **Eu disparo:** Prompt do Sprint A no Claude Code (scaffolding).
-
----
-
-## Referências
-
-### Repositórios relacionados
-
-- **14D-PROJETOS** (fonte de verdade): `/Users/davicassoli/Trabalho/14D-PROJETOS/`
-  - MONITOR-RPA (servidor)
-  - RPA-BALANCETES, RPA-Cartorios, ..., RPA-XML-HOSPITAL (clientes)
-
-- **grupo14d-obsidian-vault** (contexto): `/Users/davicassoli/Trabalho/grupo14d-obsidian-vault/`
-  - Contextos/CONTEXTO - MONITOR-RPA.md
-  - Projetos/MONITOR-RPA/Home.md
-  - Projetos/RPA - COBRANÇA AUTOMATICA/Modulos/Pronto/08 - Telemetria.md
-
-- **grupo14d-telemetry** (futuro): Repo a ser criado (scaffolding Sprint A)
-
-### Convenções
-
-- Todos os arquivos de exploração/avaliação vivem em `.md/`
-- SDD e documentação técnica vivem na raiz
-- Template files (P1-EXPLORAÇÃO.md, P2-EXPLORAÇÃO-V2.md) ficam vazios; conteúdo vai em `-CONCLUIDO`
-- Commits em português, seguindo padrão `docs(telemetry): …`, `feat: …`, `chore: …`
-- SSH para push via `git@github.com:A-DAVI/grupo14d-toolkit.git`
-
----
-
-## Status do repositório
-
-- P1: Obsoleto (histórico)
-- P2-V2: Atual (fonte de verdade)
-- P3: Pronto para revisão
-- SDD: Aguardando resolução de 3 críticas
-- Código: Nenhum (documentação apenas)
-
-Última atualização: 2026-04-17 11:10 UTC
-
----
+> Auditoria técnica e documentação orquestradas via Gemini CLI.
