@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "grupo14d-telemetry"
+dynamic = ["version"]
+description = "Biblioteca interna do Grupo 14D para telemetria de RPAs"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Proprietary" }
+authors = [
+    { name = "Davi Cassoli Lira", email = "davi@grupo14d.com.br" },
+]
+keywords = ["telemetry", "rpa", "grupo14d", "monitor-rpa"]
+classifiers = [
+    "Private :: Do Not Upload",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+
+# Dependências mínimas — stdlib quando possível
+dependencies = [
+    "pyyaml>=6.0",  # config loader (Sprint D)
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=8.0",
+]
+examples = [
+    "psutil>=5.9",
+]
+
+[project.urls]
+Repository = "https://github.com/A-DAVI/grupo14d-telemetry"
+
+[tool.setuptools.dynamic]
+version = { attr = "grupo14d_telemetry._version.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+grupo14d_telemetry = ["py.typed"]

@@ -61,7 +61,7 @@ Re-exploração com repositórios atualizados de `/Users/davicassoli/Trabalho/14
 - Uma única geração de lib (`telemetry.py`, idêntica em todos)
 - Mudanças no MONITOR-RPA (refactor `apps/api` + `apps/web`, novos endpoints)
 - Heartbeat real em IRPF (300s, evento `watcher_heartbeat`)
-- URL única `<MONITOR_INTERNAL_URL>` em produção
+- URL única `http://192.168.1.3:8000` em produção
 - Divergências operacionais (nomenclatura, fragmentação, falta de heartbeat em 14 RPAs)
 
 **Status:** Atual. Fonte de verdade para estado real da telemetria.
